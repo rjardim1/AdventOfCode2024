@@ -47,6 +47,7 @@ regex_matches_type GetRegexMatches(const string data, const regex regex_str)
 
             for (const auto& matched_data : match)
             {
+                cout << matched_data << endl;
                 regex_matches.push_back(matched_data);
             }
 
