@@ -3,8 +3,11 @@
 #
 
 # Add source to this project's executable.
-add_executable (Day1 "Day1.cpp" "Day1.h")
 
-target_link_libraries(Day1 CommonLib)
+add_library (CommonLib CommonIncludes.cpp CommonIncludes.h)
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET CommonLib PROPERTY CXX_STANDARD 20)
+endif()
 
 # TODO: Add tests and install targets if needed.

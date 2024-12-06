@@ -4,8 +4,6 @@
 
 #include "Day2.h"
 
-using namespace std;
-
 bool checkNums(const int num1, const int num2, bool previous_going_up, stringstream &error)
 {
     bool safe = true;
@@ -124,7 +122,8 @@ static bool IsSafe(vector<int> list)
 int main()
 {
     string line;
-    ifstream file("D:\\AdventOfCode2024\\Day2\\Data.txt");
+    ifstream file(R"(E:\AdventOfCode2024\RealData\Day2.txt)");
+
     int result = 0;
 
     while (getline(file, line))

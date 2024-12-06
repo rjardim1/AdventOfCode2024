@@ -3,47 +3,31 @@
 
 #include "Day1.h"
 
-using namespace std;
-
 vector<int> list_1;
 vector<int> list_2;
 
 int main()
 {
-    string line;
+    const string source_file_str = ReadFile(eDay1, eRealData);
 
-    ifstream file("D:\\AdventOfCode2024\\Day1\\Data.txt");
+    regex pair_regex(R"(([0-9]+)   ([0-9]+))");
 
-    while (getline(file, line))
+    regex_matches_type matches = GetRegexMatches(source_file_str, pair_regex);
+
+    if (matches.size() >= 3)
     {
-        bool first_number = true;
-        string number = "";
-
-        for (auto num : line)
+        for (const auto& match : matches)
         {
-            if (isdigit(num))
+            string num1 = match.at(1);
+            string num2 = match.at(2);
+
+            if (StringContainsOnlyNumbers(num1) && StringContainsOnlyNumbers(num2))
             {
-                number.push_back(num);
-            }
-            else
-            {
-                if (!number.empty())
-                {
-                    if (first_number)
-                    {
-                        list_1.push_back(stoi(number));
-                        first_number = false;
-                        number = "";
-                    }
-                }
+                list_1.push_back(stoi(num1));
+                list_2.push_back(stoi(num2));
             }
         }
-
-        list_2.push_back(stoi(number));
-        number = "";
     }
-
-    file.close();
 
     sort(list_1.begin(), list_1.end());
     sort(list_2.begin(), list_2.end());
@@ -69,7 +53,7 @@ int main()
         result += num1 - num2;
     }
 
-    cout << result << endl;
+    cout << "Part 1: " << result << endl;
 
     result = 0;
 
@@ -86,6 +70,6 @@ int main()
         result += num1 * multiplier;
     }
 
-    cout << result << endl;
+    cout << "Part 2: " << result << endl;
 }
 

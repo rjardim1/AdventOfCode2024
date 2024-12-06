@@ -3,13 +3,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <regex>
-#include <sstream>
-#include <set>
-#include <filesystem>
-#include <sys/stat.h>
+#include "..\Base\CommonIncludes.h"
 
 // TODO: Reference additional headers your program requires here.

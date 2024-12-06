@@ -3,11 +3,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector> 
-#include <algorithm>
-#include <sstream>
+#include "..\Base\CommonIncludes.h"
 
 // TODO: Reference additional headers your program requires here.
